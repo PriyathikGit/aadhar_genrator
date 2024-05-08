@@ -2,7 +2,7 @@ const express = require('express');
 const router = require('./routes/MyUid');
 const app = express();
 const cors = require('cors');
-import path from "path"
+const path = require('path')
 
 app.use(
   cors({

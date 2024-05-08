@@ -1,8 +1,10 @@
 import {  useState } from "react"
 import "./index.css"
 import Card from "../Card/Card"
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "";
 // import Card from "../Card/Card"
-const Form = () => {
+ const Form = () => {
     const [uniqueCode,setUniqueCode]= useState(null)
     const [showCard, setShowCard] = useState(false);
     const [formData, setFormData] = useState({
@@ -21,7 +23,7 @@ const Form = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("http://localhost:3000/api/generate-code");
+            const response = await fetch(`${API_BASE_URL}/api/generate-code`);
             if (!response.ok) {
                 throw new Error("Network response error");
             }
